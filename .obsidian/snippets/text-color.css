@@ -1,0 +1,23 @@
+/* Text color classes, used by the text-color plugin -------------------- */
+/* Theme-aware: these follow Obsidian's palette in light and dark.        */
+
+.tc-red      { color: var(--color-red); }
+.tc-orange   { color: var(--color-orange); }
+.tc-yellow   { color: var(--color-yellow); }
+.tc-green    { color: var(--color-green); }
+.tc-cyan     { color: var(--color-cyan); }
+.tc-blue     { color: var(--color-blue); }
+.tc-purple   { color: var(--color-purple); }
+.tc-pink     { color: var(--color-pink); }
+.tc-muted    { color: var(--text-muted); }
+.tc-accent   { color: var(--interactive-accent); }
+
+/* Highlight variants: same palette, as a background wash */
+.tc-hl-red    { background: color-mix(in srgb, var(--color-red) 22%, transparent);    border-radius: 3px; padding: 0 3px; }
+.tc-hl-orange { background: color-mix(in srgb, var(--color-orange) 22%, transparent); border-radius: 3px; padding: 0 3px; }
+.tc-hl-yellow { background: color-mix(in srgb, var(--color-yellow) 26%, transparent); border-radius: 3px; padding: 0 3px; }
+.tc-hl-green  { background: color-mix(in srgb, var(--color-green) 22%, transparent);  border-radius: 3px; padding: 0 3px; }
+.tc-hl-cyan   { background: color-mix(in srgb, var(--color-cyan) 22%, transparent);   border-radius: 3px; padding: 0 3px; }
+.tc-hl-blue   { background: color-mix(in srgb, var(--color-blue) 22%, transparent);   border-radius: 3px; padding: 0 3px; }
+.tc-hl-purple { background: color-mix(in srgb, var(--color-purple) 22%, transparent); border-radius: 3px; padding: 0 3px; }
+.tc-hl-pink   { background: color-mix(in srgb, var(--color-pink) 22%, transparent);   border-radius: 3px; padding: 0 3px; }

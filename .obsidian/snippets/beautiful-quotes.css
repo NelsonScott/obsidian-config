@@ -1,0 +1,104 @@
+/* Quote block — option 1a "Refined current, accent bar, cleaner" ---------
+   Ported from the Claude Design project "Quote block styling options",
+   file Quote Block Options.dc.html (#1a).
+
+   Obsidian-specific adaptations:
+     1. every rule scoped :not(.callout) / :not(.HyperMD-callout), since
+        callouts reuse the <blockquote> element
+     2. the mock's <footer> has no markdown equivalent, so the attribution is
+        "the last paragraph when the quote has more than one"
+     3. Live Preview has no <blockquote> box at all, only per-line
+        .HyperMD-quote rows, so both views are styled separately
+   ---------------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap');
+
+body.theme-light,
+body.theme-dark {
+  --quote-accent: #0d9488;
+  --quote-bg: #f5faf9;
+  --quote-font: "Newsreader", Georgia, serif;
+  --quote-size: 21px;
+  --quote-attr-size: 13px;
+}
+
+body.theme-dark {
+  --quote-accent: #2dd4bf;
+  --quote-bg: rgba(45, 212, 191, 0.06);
+}
+
+/* --- Reading view ------------------------------------------------------ */
+
+.markdown-rendered blockquote:not(.callout),
+.markdown-preview-view blockquote:not(.callout) {
+  margin: 1.2em 0;
+  padding: 20px 24px;
+  border: none;
+  border-left: 3px solid var(--quote-accent);
+  background: var(--quote-bg);
+  border-radius: 0 8px 8px 0;
+}
+
+.markdown-rendered blockquote:not(.callout) p,
+.markdown-preview-view blockquote:not(.callout) p {
+  margin: 0;
+  font-family: var(--quote-font);
+  font-style: italic;
+  font-size: var(--quote-size);
+  line-height: 1.5;
+  color: var(--text-normal);
+}
+
+/* Attribution */
+.markdown-rendered blockquote:not(.callout) p:last-child:not(:first-child),
+.markdown-preview-view blockquote:not(.callout) p:last-child:not(:first-child) {
+  margin-top: 12px;
+  font-family: inherit;
+  font-style: normal;
+  font-size: var(--quote-attr-size);
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: var(--quote-accent);
+}
+
+.markdown-rendered blockquote:not(.callout) p:last-child:not(:first-child) em,
+.markdown-preview-view blockquote:not(.callout) p:last-child:not(:first-child) em {
+  font-style: normal;
+}
+
+/* --- Live Preview / editing view --------------------------------------- */
+
+.markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout) {
+  background: var(--quote-bg);
+  border-left: 3px solid var(--quote-accent);
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout),
+.markdown-source-view.mod-cm6 .HyperMD-quote:not(.HyperMD-callout) .cm-quote {
+  font-family: var(--quote-font);
+  font-style: italic;
+  font-size: var(--quote-size);
+  line-height: 1.5;
+  color: var(--text-normal);
+}
+
+/* The attribution line: a quote row that FOLLOWS a quote row (so it is not
+   the only line) and is NOT followed by one (so it is the last line).
+   This is how the reading-view :last-child:not(:first-child) rule is
+   expressed when the block is a run of sibling lines instead of a box.   */
+.markdown-source-view.mod-cm6 .HyperMD-quote + .HyperMD-quote:not(.HyperMD-callout):not(:has(+ .HyperMD-quote)),
+.markdown-source-view.mod-cm6 .HyperMD-quote + .HyperMD-quote:not(.HyperMD-callout):not(:has(+ .HyperMD-quote)) .cm-quote {
+  font-family: inherit;
+  font-style: normal;
+  font-size: var(--quote-attr-size);
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: var(--quote-accent);
+}
+
+.markdown-source-view.mod-cm6 .cm-formatting-quote {
+  color: var(--quote-accent);
+  opacity: 0.5;
+}

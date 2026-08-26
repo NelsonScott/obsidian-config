@@ -1,0 +1,8 @@
+{
+  "cssTheme": "Minimal",
+  "enabledCssSnippets": [
+    "beautiful-quotes",
+    "text-color"
+  ],
+  "accentColor": "#0D9488"
+}

@@ -1,0 +1,27 @@
+# Config-only repo. Ignore everything, then re-include just the files we
+# authored or modified. Notes never get tracked; neither does stock or
+# third-party config (themes, app.json, graph.json, workspace.json).
+
+/*
+!.gitignore
+!README.md
+
+!.obsidian/
+.obsidian/*
+
+# Modified by us: accent colour + enabled snippets
+!.obsidian/appearance.json
+# Modified by us: slash-command turned on
+!.obsidian/core-plugins.json
+# Modified by us: enables the text-color plugin
+!.obsidian/community-plugins.json
+
+# Added by us
+!.obsidian/hotkeys.json
+!.obsidian/snippets/
+
+!.obsidian/plugins/
+.obsidian/plugins/*
+!.obsidian/plugins/text-color/
+# Plugin settings files can hold API keys
+.obsidian/plugins/text-color/data.json
