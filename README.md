@@ -1,15 +1,9 @@
 # Obsidian config
 
-This is the config for my Obsidian vault, not the vault itself. The notes stay
-on my machine. What is tracked here is only the stuff I actually changed or
-wrote, so I can clone it onto the PC later and get the same setup without
-dragging my notes along with it.
-
-Obsidian keeps all of its configuration inside the vault, in a `.obsidian/`
-folder sitting next to the notes, which is why this repo has that shape. The
-`.gitignore` ignores everything by default and then re-includes only the files
-listed below, so any note I write is excluded automatically rather than needing
-a new rule each time.
+Config for my Obsidian vault: hotkeys, a small plugin, CSS snippets, and
+appearance settings. Obsidian keeps all of this inside the vault in a
+`.obsidian/` folder, which is why the repo has that shape. The `.gitignore`
+ignores everything by default and re-includes only the files listed below.
 
 Started Aug 25 2026, on macOS, theme is Minimal.
 
@@ -75,7 +69,7 @@ allowed once in Settings before the text color plugin will load.
 
 - Callouts reuse the same `<blockquote>` element as quotes, so any blockquote
   CSS has to be scoped with `:not(.callout)` or it flattens every callout in
-  the vault. I found this out the hard way.
+  the vault.
 - Reading view and Live Preview are completely different DOM. Reading view has
   a real `<blockquote>`, Live Preview has one CodeMirror row per line and no box
   at all, so anything visual has to be written twice.
@@ -86,9 +80,3 @@ allowed once in Settings before the text color plugin will load.
   Georgia. Fine, just not identical.
 - Obsidian rewrites these JSON files when it quits. If I edit them by hand I
   have to reload with `Cmd+R` before closing, or the changes get overwritten.
-
-## Not tracked
-
-Notes, the Minimal theme, `workspace.json` (open tabs and pane layout, it
-changes constantly and would conflict on every pull), caches, and any plugin
-`data.json`, since those can hold API keys.
